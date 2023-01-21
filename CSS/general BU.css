@@ -1,0 +1,212 @@
+﻿@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing:border-box;
+}
+:root {
+/* ------ カスタムプロパティ定義 ------- */
+	/* 色 */
+	--dark:rgb(127, 183, 126);		/* 背景(暗)*/
+	--light:rgb(177, 215, 180);	    /* 背景（明）*/
+	--pale:rgb(247, 246, 220);		/* 背景（淡）*/
+	--orange:rgb(255, 192, 144);	/* 背景（オレンジ） */
+	--fore:rgb(135, 100, 69);       /*文字色*/
+	--strg1:hsl(20,80%,20%);	    /*強調色1 境界線やリンクの文字列の色に使う 
+	--strg2:hsl(20,80%,40%);	 強調色2 */
+	/* サイズ */
+	--baseWidth:960px;			    /* 内容基本幅 */
+	/*--minWidth:(280px - 3rem);	  仮内容最小幅*/ 
+	/*--maxWidth:1280px;			     /*仮内容最大幅*/
+	--logPx:(var(--baseWidth) / 960);
+	color:var(--fore);
+	font-family:'BIZ UDGothic', Meiryo, sans-serif;
+	font-size:max(12px,var(--logPx) * 16);
+	line-height:1em;
+}
+h1, h2, h3, h4 {
+	font-family:Corbel,"BIZ UDGothic",Meiryo,sans-serif;
+	line-height:1.2em;
+}
+h1 {
+	font-size:2em;
+	text-align:center;
+}
+h2 {
+	padding-block-end:0.1em;
+	color:var(--strg1);
+	font-size:1.4em;
+}
+h3 {
+	font-size:1.2em;
+}
+p {
+	margin-block-start:0.5em;
+	margin-block-end:1em;
+	line-height:1.5em;
+}
+nav > h2 {
+	display:none; /*箇条書きの・非表示*/
+}
+ul, ol {
+	margin-inline-start:2em; 
+	margin-block:0.5em 1em;
+	font-size:1em;
+	line-height:1.3em;
+}
+nav ul {
+	list-style:none; 
+}
+figure > p {
+	margin:0;
+}
+
+
+/*body要素共通構成box.cssができた場合はbox.cssへ移行*/
+header,footer,p {
+	position:relative;
+	overflow:hidden;
+}
+body > header {
+	block-size:72px; /*10/5 headerの高さ固定*/
+}
+/*bodyのグリッド構成*/
+body {
+	display:grid;
+	grid-template-columns:1fr min(90%,864px) 1fr; /*幅の指定*/
+	grid-template-rows:72px auto 1fr; /*header main footerの順の高さの指定*/
+	grid-template-areas:
+		"header header header "
+		". main . "
+		"footer footer footer";
+	background-color:var(--pale);
+	min-block-size:100vh;
+	overflow-y:scroll;
+	row-gap:1em;
+}
+/*template-rowsのheaderを論理ピクセルセ指定する場合、min(var(--logPx) * 120,120px)*/
+/*headerの文字ぞろえと背景色指定*/
+header {
+	grid-area:header;
+	text-align:center;
+	background-color:var(--light);
+}
+/*headerを一番上に固定*/
+body > header {
+	position:fixed;
+	/*inline-start:0px;*/
+	/*block-start:0px;*/
+	width:100%;
+	z-index:1;
+}
+/*ulとliの余白ゼロ　画面を狭めた際にliの項目が中央に来るために必要*/
+body > header :where(ul,li) {
+		margin:0px;
+		padding:0px;
+	}
+/*ロゴを左端に配置*/
+body > header > img {
+	display:block;
+	position:absolute;
+	inset-block-end:0px;/*10/5 変更*/
+	/*height:calc(var(--logPx) * 120);*/
+	height:65px; /*10/5 変更*/
+	/*height:100%; 10/5 変更*/
+	margin:0;
+	line-height:1em;
+}
+/*目次上の余白*/
+body > header > nav {
+	margin-block-start:1.5rem;
+	inline-size:100%; /*10/5*/
+}
+/*目次を横並びにflexで構成*/
+body > header > nav > ul {
+	display:flex;
+	position:absolute; /*10/5 目次の項目を一番下に固定*/
+	inset-block-end:0px; /*10/5 目次の項目を一番下に固定*/
+	inline-size:100%; /*10/5 header全体で表示するため*/
+	font-size:clamp(12px,100vw/8/14,16px);   /*可変に応じた文字サイズ*/
+	gap:0.5rem;                              /*目次同士の間隔*/
+}
+body > header > nav li {
+	inline-size:100%;
+	block-size:3.8rem; /*liのそれぞれの高さ*/
+}
+body > header > nav li a {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	block-size:100%;
+	background-color: rgba(169, 200, 132, 0.5);
+	text-decoration:none;
+	color:var(--fore);
+	}
+
+/*ロゴの分の間隔をあけた目次の表示*/
+body > header ul li:first-child {
+	padding-inline-start:100px;
+}
+main {
+	grid-area:main;
+	background-color:rgb(255,255,255);
+}
+footer {
+	grid-area:footer;
+	background-color:var(--orange);
+}
+footer {
+	text-align:center;
+}
+@media screen and (max-width:960px){
+	:root{
+		--baseWidth:100vw; /*可変する際に必要*/
+	}
+}
+/*以下からＰＣで幅狭になった時の構成*/
+@media screen and (max-width: 730px){
+	body {
+		grid-template-rows:180px auto 1fr; /*10/5 header main footerの順の高さの指定*/
+
+	}
+	body > header {
+		block-size:180px; /*10/5 headerの高さ固定*/
+	}
+		/*年代さん加筆*/
+/*ロゴを目次の中央に絶対配置*/
+	body > header > img {
+		inset-inline-start:calc((100vw - 138px) / 2);/*ロゴを中央に置くための計算*/
+		inset-block-end:0;
+		inline-size:138px;
+		block-size:auto; /*画像が大きすぎるため、仮で高さ50％*/
+		z-index:1; /*10/5 ロゴと項目をかぶらせないため*/
+	}
+/*画面が幅広の際のロゴ分の余白をリセット*/
+	body > header ul li:first-child {
+		padding-inline-start:0px;
+	}
+/*幅狭のnavのグリッド構成*/
+	body > header > nav > ul {
+		display:grid;
+		grid-template-columns:repeat(2, 1fr);/*2列で表示*/
+		inline-size:100%;      /*mainの幅と合わせるなら幅を90%*/
+		/*margin-inline:auto;  autoで目次を中央に*/
+		column-gap:100px;   /*中央にロゴを置く分の空白*/
+		flex-wrap:wrap;
+	}
+	body > header > nav li {
+		block-size:3rem; /*liのそれぞれの高さ*/
+}
+	nav ul li a {		/*文字じゃない部分もリンクとしてさわれます*/
+		display: inline-block;
+		inline-size: 100%;
+		background-color: rgba(169, 200, 132, 0.5);/*領域を確認するための着色です*/
+	}
+	body > header > nav > ul > li > a:nth-child(odd) {
+		justify-items:start; /*奇数行を左*/
+	}
+	body > header > nav > ul > li > a:nth-child(even) {
+		justify-items:end; /*偶数行を右*/
+	}
+}
+

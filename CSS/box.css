@@ -1,0 +1,358 @@
+﻿@charset "utf-8";
+/***************** 店舗情報 ****************/
+.tenpo main {
+ 	display:grid;
+ 	grid-template-columns:1fr repeat(2, calc(var(--logPx) * 350)) 1fr;
+ 	grid-template-areas:
+ 		"h h h h"
+ 		". figure dl ."
+ 		"p p p p";
+	column-gap:3%;
+	row-gap:1em;
+	align-items:start;
+}
+.tenpo main {
+	justify-content:center;
+}
+.tenpo main > h1 {
+	grid-area:h;
+	text-align:center;
+	
+}
+.tenpo main > figure {
+	grid-area:figure;
+}
+.tenpo main > dl {
+	grid-area:dl;
+	display:grid;
+	column-gap:1em;
+	row-gap:1em;
+	grid-template-columns:5em 1fr;
+	text-align:start;
+	padding-block-end:2em;
+}
+.tenpo main > p {
+	grid-area:p;
+	text-align:center;
+	padding-block-end:1em;
+}
+.tenpo main > dl > dt {
+	text-align:justify;
+	text-align-last:justify;
+	grid-column:1;
+	font-weight:bold;
+
+}
+.tenpo main > dl > dt::after {
+	content:":";
+}
+.tenpo main > dl > dd {
+	grid-column:2;
+}
+/*幅が700px以下になった時に地図を上、文を下に*/
+@media screen and (max-width:700px) {
+	.tenpo main {
+		grid-template-columns:1fr 300px 1fr;
+		grid-template-areas:
+		". h ."
+ 		". figure ."
+ 		". dl .";
+	}
+	/*写真を中央に*/
+	.tenpo main > figure {
+		text-align:center;
+	}
+}
+@media screen and (max-width: 335px){
+	.tenpo main > dl {
+		display:block;
+	}
+	.tenpo main > dl > dt {
+		text-align-last:center;
+		padding-block-end:0.25em;
+		font-size:1.1em;
+	}
+	/*.tenpo main > dl > dt::after {
+		content:none;
+	}*/
+	.tenpo main > dl > dd {
+		text-align:center;
+		padding-block-end:0.7em;
+	}
+}
+
+/******************** 今月のコーヒー＆ケーキ ********************/
+.monthly main {
+	padding-inline: 1em;
+}
+.monthly main > section p {
+    text-align: center;
+}
+.monthly main > section > p:first-child {
+    margin-block-start: 2em;
+}
+.monthly main > section > p:last-child {
+    margin-block: 5em;
+}
+.monthly main > section > article {
+	justify-content: center; 
+	margin-inline:auto; 
+    margin-block-end: 3em;
+	inline-size: 75%;
+	block-size: auto;
+}
+.monthly main > section > article > h2 {
+    border-bottom: 1px solid;
+	margin-block-start: 2em;
+}
+.monthly main > section > article > section > p:nth-of-type(1) {
+	margin-block-start: 1.6em;
+}
+.monthly main > section > article > section > p > img {
+    inline-size: 100%;
+}
+.monthly main > section > article > section > p {
+	display: inline-block;
+	text-align: start;	
+}
+.monthly main > aside > h2 {
+	text-align: center;
+}
+.monthly main > aside > article {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    column-gap: 1em;
+}
+.monthly main > aside > article > h3 {
+    border-bottom: 1px solid;
+	margin-block-start: 1em;
+}
+.monthly main > aside > article > *:nth-child(1) {
+	grid-column: 1 / span 2;
+	margin-block-end: 1em;
+}
+.monthly main > aside > article img {
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+    inline-size: 100%;
+}
+
+/*ボタンデザイン*/
+.monthly main > section > p > a {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 1em 2em;
+	inline-size: 300px;
+	font-size: 1em;
+	transition: 0.3s;
+	text-decoration: none;
+}
+.monthly main > section > p > a::before {
+	content: '';
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-end: 1em;
+	transform: translateY(-50%);
+	inline-size: 35px;
+	block-size: 35px;
+	border: 2px solid var(--dark);
+	border-radius: 50vh;
+	transition: 0.3s;
+}
+.monthly main > section > p > a::after {
+	content: '';
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-end: 35px;
+	transform: translateY(-50%);
+	inline-size: 50px;
+	block-size: 2px;
+	background-color: var(--strg1);
+}
+.monthly main > section > p > a:hover {
+	text-decoration: none;
+	background-color: var(--light);
+}
+  
+.monthly main > section > p > a:hover::before {
+	background-color: var(--dark);
+}
+
+/* メディアクエリ */
+@media screen and (max-width:480px) {
+    .monthly main > section p {
+        text-align: center;
+    }
+    .monthly main > section > p:last-child {
+        text-align: center;
+    }
+    .monthly main > section > article h4 {
+        text-align: left;
+    }
+    .monthly main > section > article img {
+        inline-size: 100%;
+        text-align: center;
+    }
+	.monthly main > aside > article > section {
+		grid-column: 1 / span 2;
+	    display: grid;
+	    grid-template-columns:1fr 1fr;
+	    column-gap: 1em;
+	}
+	.monthly main > aside > article > section > *:nth-child(1) {
+		grid-row: 1 / span 4;
+	}
+	.monthly main > aside > article > section > *:not(:nth-child(1)) {
+		grid-column: 2;
+	}
+}   
+
+/**************** 自家焙煎珈琲 *******************/
+.cfi h1+p {
+	display:none;
+}
+
+@media screen and (max-width: 730px){
+	.cfi {
+		grid-template-rows:180px auto 90px; /*header main footerの順の高さの指定*/
+	}
+}
+@media screen and (max-width:425px) {
+	.cfi h1+p {
+	display:block;
+	}
+} 
+
+/**************** お問合せ *******************/
+.contact main > h1 {
+	display:block;
+}
+.contact main table {
+	inline-size: 100%;
+}
+.contact main table td {					/*normalを指定して、td内の内容を単語区切りで改行*/
+	overflow-wrap: normal; 
+}
+.contact main .item {				/*クラスitem = テーブルの項目名のセル*/
+	background-color: #cfcfcf;	/*うすいグレー*/
+	padding-inline-start:1rem;
+	inline-size: 40%;
+}
+.contact main table td:not(.item){	/*テーブル内、記入するセル*/
+	background-color: #c0c0c0;	/*濃いグレー*/
+	block-size: 3rem;
+	padding: 0 1rem;
+}
+.contact main table td span {				/*必須のマーク*/
+	font-size: 0.9em;
+	color: #FFF;
+	background-color: red;
+	margin-inline-start: 5px;
+	padding: 1px;
+}
+.contact main .button {			/*【戻る】以外のボタン*/
+	text-align: center;
+	inline-size: 10rem;
+	block-size: 3rem;
+	font-size: 1em;
+}
+.contact main .item{
+	/*text-align:left;
+	text-decoration:underline;*/
+	}
+.contact main .modoru{
+	width: 7rem; 
+	height: 2rem;
+	}
+.result main > p:first-of-type {
+	text-align:center;
+	}
+.contact main img:hover{  
+	transform: scale(1.2);  
+	transition-duration: 0.5s;
+	}	/*画像触れたら拡大*/
+/**********　レ　ス　ポ　ン　シ　ブ　対　応　****************/
+@media screen and (max-width: 570px) {
+	.contact main .item {
+ 		inline-size: 100%;
+  }
+  .contact main table td {	
+  	inline-size: 100%;
+    display: block;		/*← スマホだと2列だったテーブルが1列に変化*/
+	height: 2rem;
+		/*↓ ↓ スマホだとtd要素が真ん中に配置されずズレるので下記で調整*/
+		padding-block-start: 0.5rem;	
+  }
+  .contact main textarea {
+  	margin-block-start: 1rem;
+  }
+  .contact table td:not(.item){
+		padding-block-start: 1rem;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.contact table :is(input, textarea) {
+		inline-size:90%;
+	}
+}
+
+/****************** クーポン **********************/
+	/*.coupon h1{text-align: center;
+	font-size:3.5em;
+	padding-bottom:1rem;
+	}*/
+	
+	.coupon main {
+	background-color:rgb(247, 246, 220);
+	padding-block-start:0;
+	padding-inline:0;
+	}
+	.coupon h1{
+	padding-top:0.25em;
+	padding-bottom:0.25em;
+	text-align:center;
+	color:rgb(255, 255, 255);
+	background-color:#876554;
+
+	}
+	.coupon dl {
+	line-height:1.5em;
+	padding-inline:2rem;
+	}
+	.coupon main{background-color:rgb(255, 255, 255)}
+	/*
+   @media screen and (max-width:680px) {
+    	.pc{
+    		display: none;
+    	}
+    }
+	@media screen and (min-width:681px) {
+    	.sumaho{
+    		display: none;
+    	}
+    }
+    */
+
+
+	
+	/*@media 文*/
+@media screen and (max-width: 960px) {
+	.coupon .pc {
+		margin: auto;
+		width: 100%;
+	}
+}
+	
+@media print {
+	.coupon header,.coupon h1,.coupon h2,.coupon p,.coupon a,.coupon dl,.coupon footer {
+		display:none;
+	}
+	.coupon .sumaho{
+		display:block;
+		height:auto;
+		width:57mm;
+		margin-inline:auto;
+	} 
+}

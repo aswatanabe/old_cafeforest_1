@@ -1,0 +1,301 @@
+﻿﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="「Cafe Forest（カフェフォレスト）」は、自家焙煎のコーヒーと自家製ケーキがが売りの東京都北区のカフェ。駐車場・駐輪場有り。本格的なコーヒーが気軽に楽しめるカジュアルな雰囲気が若者の間で人気で、好みに合わせて焙煎する豆は通販でも取り寄せ可能です。">
+<title>トップ | Cafe Forest</title>
+<link rel="stylesheet" href="CSS/general.css"> 
+</head>
+<style>
+/*ヘッダーはジェネラルのオーバーフロウhiddeで消えている・・・。*/
+.TOP header { /*ロゴをはみ出させるためのheaderに関する指定*/
+	height:60px;
+	overflow:visible;
+	position:relative;
+}
+.TOP header p {
+	height:60px;
+	overflow:visible;
+
+}
+.TOP header img { /*imgの配置*/
+	position:absolute;
+	inset-block-start:-2em;
+	inset-inline-start:45%;
+}
+
+.TOP nav ul li { /*ジェネラルの打ち消し*/
+	padding-inline:0px; 
+}
+.TOP nav > h1 {
+	display:none;
+}
+.TOP > main{
+	height:700px;/*仮 高さはおいおい変更する*/
+}
+.TOP main {
+	position:relative;
+}
+.TOP h2 ,.TOP li {
+	position:absolute;
+}
+.TOP li,.TOP li a {
+	width:13em;
+	height:1.5em;
+}
+.TOP li:not(:nth-of-type(8)) { /*ここで指定して子供要素のセンターそろえを実現あと影*/
+	display:flex;
+	justify-content:center;
+	align-items:center; 
+	box-shadow:10px 10px 10px 0 rgba(255, 192, 144,0.7);
+}
+.TOP li:not(:nth-of-type(8)) a{
+	text-align:center;
+}
+.TOP li:nth-of-type(1){/*top*/
+	display:none;
+}
+.TOP li:nth-of-type(2){/*自家焙煎珈琲*/
+	inset-block-start:5em;
+	inset-inline-start:2em;
+}
+.TOP li:nth-of-type(3){/*今月のコーヒー＆ケーキ*/
+	inset-block-start:9em;
+	inset-inline-start:2em;
+}
+.TOP li:nth-of-type(4){/*メニュー*/
+	inset-block-start:13em;
+	inset-inline-start:2em;
+}
+.TOP li:nth-of-type(5){/*通販*/
+	inset-block-start:17em;
+	inset-inline-start:2em;
+}
+.TOP li:nth-of-type(6){ /*店舗紹介*/
+	inset-block-start:21em;
+	inset-inline-start:2em;
+}
+.TOP li:nth-of-type(7){/*問い合わせ*/
+	inset-block-start:25em;
+	inset-inline-start:2em;
+}
+.TOP li:nth-of-type(8){/*クーポンバナー*/
+	inset-block-start:1em;
+	inset-inline-start:2em;
+	width:200px;
+	height:35px;
+	overflow:hidden;
+	box-shadow:10px 10px 10px 0 rgba(255, 192, 144,0.7);
+}
+.TOP li:nth-of-type(8) img{ /*クーポンバナーをセンターにするため*/
+	position:center;
+}
+.TOP > main > article { /*news*/
+	position: absolute;
+	width:60%;
+	height:15%;
+	inset-block-start:30em;
+	inset-inline-start:10em;
+	overflow-y: scroll;
+	background-color:var(--pale);
+	box-shadow:10px 10px 10px 0 rgba(255, 192, 144,0.7);
+	border-radius:10px;
+}
+.TOP article > h2 {
+	display:none;
+}
+.TOP li:not(:nth-of-type(8)) { /*liの背景　:notクーポン画像*/
+	background-color:var(--light); /*カスタムプロパティに透明度追加する方法ある？*/
+	height:2.5em;
+	border-radius:10px;
+}
+.TOP li:nth-of-type(8) {
+	border-top-right-radius:7px;
+	border-bottom-right-radius:7px;
+}
+.TOP main > p{
+	position:abusplute;
+	background-color:var(--pale);
+	inset-block-start:15em;
+	inset-inline-start:20em;
+	width:18em;
+	padding:2em;
+	border-radius:10px;
+}
+/*ここまで前絶対配置たち*/
+main {
+	background-image:url(images/TOP/photoAC03.jpg);
+	background-size:cover;
+}
+/*ここまで背景画像*/
+@media screen and (max-width:730px) {
+	body {
+		grid-template-rows:72px auto 90px; /*header main footerの順の高さの指定*/
+	}
+}
+@media screen and (max-width:600px) {
+
+	.TOP header img { /*imgの配置*/
+		inset-inline-start:52%;
+	}
+	.TOP li:nth-of-type(2){/*自家焙煎珈琲*/
+		inset-block-start:5em;
+	}
+	.TOP li:nth-of-type(3){/*今月のコーヒー＆ケーキ*/
+		inset-block-start:7em;
+		inset-inline-start:18em;
+	}
+	.TOP li:nth-of-type(4){/*メニュー*/
+		inset-block-start:9em;
+	}
+	.TOP li:nth-of-type(5){/*通販*/
+		inset-block-start:11em;
+		inset-inline-start:18em;
+	}
+	.TOP li:nth-of-type(6){ /*店舗紹介*/
+		inset-block-start:13em;
+	}
+	.TOP li:nth-of-type(7){/*問い合わせ*/
+		inset-block-start:15em;
+		inset-inline-start:18em;
+	}
+	.TOP li:nth-of-type(8){/*クーポンバナー*/
+		inset-block-start:1em;
+		width:200px;
+		height:35px;
+		overflow:hidden;
+	}
+	.TOP li:nth-of-type(8) img{ /*クーポンバナーをセンターにするため*/
+		position:center;
+	}
+	.TOP > main > article { /*news*/
+		position: absolute;
+		width:80%;
+		height:15%;
+		inset-block-start:20em;
+		inset-inline-start:3em;
+		overflow-y: scroll;
+		background-color:rgb(247, 246, 220,)
+	}
+	.TOP article > h2 {
+		display:none;
+	}
+	li:not(:nth-of-type(8)) {
+		background-color:rgb(177, 215, 180); /*カスタムプロパティに透明度追加する方法ある？*/
+	}
+	.TOP main > p {
+		position:abusplute;
+		background-color:rgb(247, 246, 220);
+		inset-block-start:20em;
+		inset-inline-start:7em;
+		width:2em;
+		display:none;
+	}
+}/*media文の閉じ*/
+@media screen and (max-width:480px) {
+	.TOP li:nth-of-type(8) {
+		width:128px;
+	}
+}
+@media screen and (max-width:425px) {
+	.TOP li:nth-of-type(8) {
+		width:128px;
+	}
+	.TOP header img { /*imgの配置*/
+		inset-inline-start:40%;
+	}
+	.TOP li:nth-of-type(2){/*自家焙煎珈琲*/
+		inset-block-start:10em;
+		inset-inline-start:1em;
+	}
+	.TOP li:nth-of-type(3){/*今月のコーヒー＆ケーキ*/
+		inset-block-start:13em;
+		inset-inline-start:3em;
+	}
+	.TOP li:nth-of-type(4){/*メニュー*/
+		inset-block-start:16em;
+		inset-inline-start:1em;
+	}
+	.TOP li:nth-of-type(5){/*通販*/
+		inset-block-start:19em;
+		inset-inline-start:3em;
+	}
+	.TOP li:nth-of-type(6){ /*店舗紹介*/
+		inset-block-start:22em;
+		inset-inline-start:1em;
+	}
+	.TOP li:nth-of-type(7){/*問い合わせ*/
+		inset-block-start:25em;
+		inset-inline-start:3em;
+	}
+	.TOP li:nth-of-type(8){/*クーポンバナー*/
+		inset-block-start:6em;
+		inset-inline-start:1em;
+		width:128px;
+		height:35px;
+		overflow:hidden;
+	}
+	.TOP li:nth-of-type(8) img{ /*クーポンバナーをセンターにするため*/
+		position:center;
+	}
+	.TOP > main > article { /*news*/
+		position: absolute;
+		width:80vw;
+		height:15%;
+		inset-block-start:30em;
+		inset-inline-start:1.5em;
+		overflow-y: scroll;
+		background-color:rgb(247, 246, 220)
+	}
+	.TOP article > h2 {
+		display:none;
+	}
+	li:not(:nth-of-type(8)) {
+		background-color:rgb(177, 215, 180); /*カスタムプロパティに透明度追加する方法ある？*/
+	}
+	.TOP main > p{
+		display:none;
+/*		position:abusplute;   /*こいつらは自家焙煎珈琲へ
+		background-color:rgb(247, 246, 220);
+		inset-block-start:-13em;
+		inset-inline-start:3em;
+		width:16em; */
+	}
+}/*media文の閉じ*/
+/*ここまで＠medhia文*/
+</style>
+<body class="TOP">
+<header>
+<p><img src="images/logo_maru.svg" width="auto" height="170px" alt="ロゴ"></p>
+</header>
+<main>
+	<nav>
+		<h1>ナビゲーション</h1><!--スマホはハンバーガorフレックスらっぷ表示。空白のメイン要素にロゴを大きく載せるか-->
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="coffee-info/index.html">自家焙煎コーヒー</a></li>
+			<li><a href="coffee-cake/monthly.php">今月のコーヒー＆ケーキ</a></li>
+			<li><a href="menu/index.html">メニュー</a></li>
+			<li><a href="store/index.html">通販</a></li><!--ハイライトかdisplay:none-->
+			<li><a href="tenpo/index.html">店舗紹介</a></li>
+			<li><a href="contact/index.html">お問い合わせ</a></li>
+			<li><a href="coupon/index.html"><picture><source srcset="images/banner_hanbun.png" media="(max-width: 480px)"><img src="images/banner_h.png" alt="バナー"></picture></a></li>
+		</ul>
+	</nav>
+	<article>
+		<h2>ニュース</h2><!--ニュースを-->
+			<p>2022/10/1  10月のコーヒーを更新しました</p><!--overflow: scroll;でページ内スクロールに挑む-->				
+			<p>2022/10/1  10月のケーキを更新しました</p>
+			<p>2022/9/1  9月のケーキを更新しました</p>
+			<p>2022/9/1  9月のケーキを更新しました</p>
+			<p>2022/8/17  台風のため臨時休業いたします。</p>
+	</article>
+	<p>パフォーマンスにこだわる方へ<br>HPSCから徒歩2分の森林浴</p>
+</main>
+<footer>
+	<p><small><a href="law/index.html">特定商取引法に基づく表示</a></small></p>
+	<p><small>Copyright © Cafe Forest. All Rights Reserved.</small></p>
+</footer>
+</body>
+</html>

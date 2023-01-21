@@ -1,0 +1,1088 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="東京都北区のカフェ「Cafe Forest（カフェフォレスト）」では、オーダー後に、お客様の好みに合わせて、熟練焙煎士が世界中から厳選したコーヒー豆を焙煎しています。焙煎度・挽き方の指定が可能。店頭もしくは通販でご購入ください。大量注文・業務用にも対応いたします。">
+<meta name"keywords" content="世界中から,厳選,熟練焙煎士,オーダーを受けてから,店頭販売,通販,焙煎度,挽き方,指定,好みに合わせた">
+<title>通販 | Cafe Forest</title>
+
+<link rel="stylesheet" href="../CSS/general.css">
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script>
+const
+	d = document,
+	check = d.location.search;
+d.addEventListener("DOMContentLoaded", () => {
+	const rbtn = d.querySelectorAll("input");
+	if (check === "?pfo") {
+		rbtn.item(0).removeAttribute("checked");
+		rbtn.item(1).setAttribute("checked", "checked");
+	} else if (check === "?rlx"){
+		rbtn.item(0).removeAttribute("checked");
+		rbtn.item(2).setAttribute("checked", "checked");
+	}
+});
+
+$(function() {   /*焙煎、挽き方の表示非表示*/
+    $(".baisen").click(function() {
+        $(".baiseninfo").slideToggle("");
+    });
+});
+$(function() {
+    $(".mil").click(function() {
+        $(".milinfo").slideToggle("");
+    });
+});
+</script>
+<style>
+/**/
+/*************/
+input[type="radio"],
+input[type="radio"] + section { 
+	display:none;
+}
+input[type="radio"]:checked + section { 
+	display:block;
+}
+label[type="radio"]:checked { 
+	display:block;
+}
+
+.str label { /*タブの色付け*/
+		background-color:var(--orange);
+		text-align:center;
+		color:var(--fore);
+}
+.str label:hover {
+	opacity:0.5;
+}
+.str #input1:checked ~ div > div:nth-of-type(1),
+.str #input2:checked ~ div > div:nth-of-type(2),
+.str #input3:checked ~ div > div:nth-of-type(3) {
+	order:-1;
+	background-color:var(--pale);
+	font-weight:bold;
+}
+.str #input1:checked ~ div > div:nth-of-type(1):hover,
+.str #input2:checked ~ div > div:nth-of-type(2):hover,
+.str #input3:checked ~ div > div:nth-of-type(3):hover {
+	opacity:1.0;
+}
+
+.str main > section > section > article {/*コンテンツのグリッドレイアウト*/
+	display:grid;
+	grid-template-columns:min(30vw, 150px) min(50vw, 250px) min(40vw, 250px) 1fr;
+	grid-template-rows:50px 200px;
+	grid-template-areas:
+		"h6 h6 h6 h6"
+		"img table div div";
+	column-gap:1rem;
+	padding-block-end:1.5rem;
+}
+
+.str article > h6 {
+	grid-area:h6;
+	/*font-size:2rem;  ジェネラル待ち*/
+}
+
+.str article > p:first-of-type {
+	grid-area:img;
+}
+
+.str article > table {
+	grid-area:table;
+}
+
+.str article > div {
+	grid-area:div;
+}
+
+.str > main > section ul { /* カテゴリのグリッドレイアウト*/
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr;
+	grid-template-areas:
+		"pickup pfo rlx";
+	column-gap:1rem;
+	list-style-type:none;
+}
+.str section > ul > li:nth-of-type(1){
+	grid-area:pickup;
+}
+.str section > ul > li:nth-of-type(2){
+	grid-area:pfo;
+}
+.str section > ul > li:nth-of-type(3){
+	grid-area:rlx;
+}
+.str main > section > h1,.str h4 {
+	display:none; 
+}
+
+
+.str main > section > section > div {
+	background-color:var(--pale);
+}
+
+.str main .baisen h3 {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.str main dl {
+	display:none;
+}
+/*以降文字サイズなど*/
+.str h6 { 
+	font-size:1em;
+}
+.str div,.str main > section > p,.str dd {
+	font-size:max(0.9em,12px);
+}
+/*ddの下にマージン*/
+.str dd,.str h3 {
+	margin-block-end:0.9em;
+}
+.baisen,.mil {
+	width:7em;
+	background-color:var(--orange);
+}
+.baisen:hover,.mil:hover {
+		opacity:0.5;
+}
+
+/*@media文*/
+@media screen and (max-width:780px) {
+	.str main > section > section > article {/*コンテンツのグリッドレイアウト*/
+		grid-template-columns:min(30vw, 150px);
+		grid-template-rows:2em 100px 15em 28em;
+		grid-template-areas:
+			"h6"
+			"img"
+			" table"
+			" div";
+		float:left;
+		margin-inline-start:3em;
+		margin-inline-end:1em;
+	}
+@media screen and (max-width:380px) {
+	.str main > section > section > article {/*コンテンツのグリッドレイアウト*/
+		grid-template-columns:min(40vw, 150px);
+		margin-inline-start:0.5em;
+		margin-inline-end:0.5em;
+	}
+}/*@mediaの閉じ*/
+
+</style>
+
+</head>
+
+<body class="str">
+<header>
+<img src="../images/logo.svg" width="auto" height="100px" alt="ロゴ">
+
+<nav>
+<h2>サイトマップ</h2><!--nonn候補-->
+	<ul class="globalMenuSp">
+		<li><a href="../index.html">トップ</a></li>
+		<li><a href="../coupon/index.html"><picture><source srcset="../images/banner_hanbun.png" media="(max-width: 730px)"><img src="../images/banner_h.png" alt="バナー"></picture></a></li>
+		<li><a href="../coffee-info/index.html">自家焙煎コーヒー</a></li>
+		<li><a href="../coffee-cake/monthly.php">今月のコーヒー＆ケーキ</a></li>
+		<li><a href="../menu/index.html">メニュー</a></li>
+		<li><a href="../store/index.html">通販</a></li><!--ハイライトかdisplay:none-->
+		<li><a href="../tenpo/index.html">店舗紹介</a></li>
+		<li><a href="../contact/index.html">お問い合わせ</a></li>
+	</ul>
+</nav>
+</header>
+<main>
+	<h1>通販</h1><!--display:noneかな？-->
+		<section>
+			<h3>自家焙煎豆について</h3><!--display:noneかな-->
+			<p>世界中から取り寄せた厳選した豆を使用しております。</p>
+			<p>コーヒーを知り尽くした熟練焙煎士がオーダーを受けてから焙煎いたします。</p>
+			<p>豆ごとに店頭販売は100ｇ、通販は200ｇから100ｇ刻みで販売となっております。</p>
+			<p>オーダー後、焙煎度、挽き方を指定できるので自分の好みに合わせたコーヒーをお楽しみいただけます。</p>
+			<p>表記はすべて税込価格です。</p>
+		</section>
+		<section>
+			<h3 class="baisen">焙煎度について</h3>
+			<dl class="baiseninfo">
+				<dt>ライトロースト</dt>
+				<dd>うっすらと焦げ目がついた程度の小麦色。コーヒーらしい香りやコクはまだまだ不十分で、一般的に飲まれることはほとんどありません。</dd>
+				<dt>シナモンロースト</dt>
+				<dd>名前の通り、シナモン色。まだ豆の青臭さが残っており、飲用には適しません。しかし、豆の酸味が最も強い煎り方であることから、“酸味好き”にはたまらない一杯が抽出できます。</dd>
+				<dt>ミディアムロースト</dt>
+				<dd>コーヒーらしいこうばしい香りと、まろやかさのある酸味、ほんのわずかな苦味も感じられます。日本のカフェや喫茶店で提供される「アメリカンコーヒー」に用いられることが多い焙煎度合いです。</dd>
+				<dt>ハイロースト</dt>
+				<dd>さわやかな酸味は残しつつも、コーヒーらしい苦味や甘みが現れ、バランスに優れた味わいになります。一般的な焙煎度合いであり、やや浅めの「レギュラーコーヒー」として用いられます。</dd>
+				<dt>シティロースト</dt>
+				<dd>深煎りの最初の段階であるシティーローストは、酸味と苦味のバランスが保たれた、最も一般的な焙煎度合いです。日本でも「レギュラーコーヒー」の王道になりつつあり、近年は「エスプレッソ」に使う店舗もあります。</dd>
+				<dt>フルシティロースト</dt>
+				<dd>酸味が少なくなると共に、苦味が際立ってくる焙煎度合いです。また、こうばしい香りも一際強くなり始めるので、コーヒーの芳醇な味と漂う香りも同時に楽しみたい人におすすめです。</dd>
+				<dt>フレンチロースト</dt>
+				<dd>焙煎度合いが深くなり、黒に近い焦げ茶色になると、コーヒー豆の油が表面を覆いはじめます。酸味はほとんどなくなり、苦味が一層際立ち、香りの質も変化してきます。カフェオレ、ウィンナーコーヒーなどミルクやクリームと掛け合わせるコーヒーに向いており、コーヒーならではの苦味が存在感を発揮します。</dd>
+				<dt>イタリアンロースト</dt>
+				<dd>ほぼ黒色の状態まで煎ったコーヒー豆の表面は、油分でツヤツヤと光り出します。重厚な苦味と深いコクが特徴で、エスプレッソやカプチーノなどイタリアを代表するコーヒーの飲み方に適した焙煎度合いです。ただし近年は、ここまで深煎りしない焙煎が、エスプレッソの主流になりつつあります。</dd>
+			</dl>
+		</section>
+		<section>
+			<h3 class="mil">挽き方について</h3>
+			<dl class="milinfo">
+				<dt>豆のまま</dt>
+				<dd>挽きたての味が楽しめるのでおススメです。</dd>
+				<dt>細挽き</dt>
+				<dd>サイフォン・アイスコーヒー等に</dd>
+				<dt>中挽き</dt>
+				<dd>ペーパードリップ・コーヒーメーカー等に</dd>
+				<dt>粗挽き</dt>
+				<dd>ネルドリップ・フレンチプレス等に	</dd>
+				<dt>極細挽き</dt>
+				<dd>エスプレッソ用	</dd>
+			</dl>
+		</section>
+		<section>
+		<h4>商品カテゴリ</h4><!--display:noneかな-->
+		<ul>
+			<li><label for="input1"><img src="icon-3.svg" width="20px" height="auto" alt="PICK UP">PICK UP</label></li>
+			<li><label for="input2"><img src="icon-1.svg" width="20px" height="auto" alt="パフォーマンス">パフォーマンス</label></li>
+			<li><label for="input3"><img src="icon-2.svg" width="20px" height="auto" alt="リラックス">リラックス</label></li>
+		</ul>
+		<input id="input1" name="radio" type="radio" checked="checked" />
+		<!-- input id="input2" name="radio" type="radio" /-->
+		<!--input id="input3" name="radio" type="radio" /-->
+			<section id="pickup">
+				<h5>PICK UP</h5><!--pick upの商品一覧　デフォルト表示-->
+				<article>
+					<h6>今月のおすすめ（2019.10ブレンド）</h6>
+					<p><img src="../images/store/pickup.jpg" width="150px"　alt="コーヒー豆の銘柄" /></p>
+					<div>
+						<p>寒くなり始める季節におすすめのブレンド</p>
+						<p>パフォーマンス向きのコーヒー。カフェイン含有量が高い。気温が下がり始める朝にうれしいブレンド</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>8/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>							
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>458円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row" scope="row">こく</th></th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>4</td>
+						</tr><tr>
+							<th scope="row">酸味</th>
+							<td>3</td>						
+						</tr><tr>
+							<th scope="row">苦味</th>
+							<td>4</td>					
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>先月のおすすめ（2019.9ブレンド）</h6>
+					<p><img src="../images/store/pickup.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>残暑残る季節におすすめのブレンド</p>
+						<p>パフォーマンス向きのコーヒー。カフェイン含有量が高くさっぱりとした後味を追求した。気分転換におすすめのブレンド</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>							
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>509円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>						
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>4</td>					
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>4</td>					
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>				
+						</tr>
+					</table>
+				</article>
+			</section><!--pickup-->
+			<input id="input2" name="radio" type="radio" />
+			<section id="pfo">
+				<h5>パフォーマンス</h5><!--パフォーマンスの商品一覧-->
+				<article>
+					<h6>ビターブレンド</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>ビターチョコレートを思わせるような、ほろ苦くも甘いコーヒー「バレンタインブレンド」</p>
+						<p>パフォーマンス向きのコーヒー。カフェイン含有量が高くチョコレートのような甘い風味。ショコラフレーバー香る、ほろ苦くも甘いコーヒー。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>407円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>5</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>4</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>ヨーロピアンブレンド</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>ヨーロピアンに最適な焙煎度で味わいを楽しめるブレンド</p>
+						<p>パフォーマンス向きのコーヒー。カフェイン含有量が高くしっかりとしたコクを感じるが、案外あっさりもしている</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>9/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>458円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>5</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>4</td>
+						</tr>
+							<tr>
+							<th scope="row">酸味</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>5</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>スペシャルブレンド</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>当店オリジナルのブレンド</p>
+						<p>パフォーマンス向きのコーヒー。カフェイン含有量が高く軽食やリフレッシュ時に最適</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>550円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>4</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>ケニア</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>クオリティが高く独特な味わいがあり、近年世界中から注目を集めている。</p>
+						<p>パフォーマンス向きのコーヒー。ケニアはコーヒー生産に適した環境を有しているだけでなく、管理体制もしっかり確立されているため安心。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>764円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>グァテマラ</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>火山を有する山岳地帯があり、上質な味が特徴</p>
+						<p>パフォーマンス向きのコーヒー。フルーティーな酸味と花のような香りが特長。深いコクがあり、やさしい甘さの後味が上品で飲みやすい。重めのボディでチョコレートやナッツのような甘みもあります。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>560円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>コロンビア</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>味わいは苦味と酸味のバランスが取れていて、クセが少なくキリッとしている</p>
+						<p>パフォーマンス向きのコーヒー。強すぎないコクがあり、非常に飲みやすく、落ち着きのある上品さが感じれる。コーヒー豆本来の香りは香ばしく、飲むとフルーツのような芳醇な香り</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>560円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>4</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>ブラジル</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>コーヒーを今まであまり飲んだことのない初心者に対してブラジル産のコーヒー豆から飲み始めることがおすすめ</p>
+						<p>パフォーマンス向きのコーヒー。カフェイン含有量が高く焙煎の具合によっては、中煎りの場合だと柔らかい感じの味になり、深煎りの場合は力強く苦めの味になる</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>6/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>509円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>4</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>キリマンジャロ</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>高地栽培ならではの上質な酸味とともに、マイルドなコクと甘酸っぱい香りを楽しめる。</p>
+						<p>パフォーマンス向きのコーヒー。酸味の強さは、生豆の状態でも感じられる。嗅いでみると、柑橘類や花のようなフルーティーで存在感のある、甘酸っぱい香りを体感できる。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>611円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>
+						</tr>					
+					</table>
+				</article>
+				<article>
+					<h6>コナ</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>実はホワイトハウスの晩餐会でも供される、高品質のコーヒー豆</p>
+						<p>やわらかな酸味と滑らかな口当たりが特長。コーヒー本来の果実味を感じさせるフルーティな甘い香り、そして苦みの少ないまろやかな味わい。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>							</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>917円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>5</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>2</td>
+						</tr>
+					</table>
+				</article>			
+				<article>
+					<h6>ブルーマウンテン（No1）</h6>
+					<p><img src="../images/store/pfo.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>珈琲の王様と呼ばれる言わずと知れたコーヒーの最高級品</p>
+						<p>なめらかな舌触りと苦味・酸味・甘味・コクと調和のとれた味わい。言わずと知れたジャマイカコーヒーの最高級品。カリブ海ジャマイカから届いたブルーマウンテンで贅沢なひと時を。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">パフォーマンス数値</th>
+							<td>6/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>1,630円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>
+						</tr>
+					</table>
+				</article>
+			</section><!--パフォーマンス-->
+			<input id="input3" name="radio" type="radio" />
+			<section id="rlx">
+				<h5>リラックス</h5><!--リラックス-->
+				<article>
+					<h6>Forestブレンド</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>当店オリジナルのブレンド。当初より一番長く愛されている。</p>
+						<p>リラックス向きのコーヒー。これからの活動に効果が見込める。当店自慢のブレンド。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>458円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>赤羽ブレンド</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>所在地の赤羽をイメージしてブレンドした豆</p>
+						<p>リラックス向きのコーヒー。外回りの営業マンから人気が高い。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>5/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>407円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>2</td>
+						</tr>						
+					</table>
+				</article>
+				<article>
+					<h6>アメリカンブレンド</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>カフェインを控えたい人におすすめ。多めのお湯で抽出しても香りを楽しめる</p>
+						<p>リラックス向きのコーヒー。これからの活動に効果が見込める。夕方、夜のリフレッシュにおすすめ</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>6/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>								
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>407円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>2</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>マイルドブレンド</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>マイルドさを追求した当店自慢のブレンド</p>
+						<p>リラックス向きのコーヒー。酸味や苦みのバランスを追求したブレンド。カフェオレやウィンナなど味わいの邪魔をしない。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>6/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>458円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>1</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>ストロングブレンド</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>コクを追求したブレンド</p>
+						<p>リラックス向きのコーヒー。このブレンドのコクはいっぱいでまるでコース料理を食したかのような満足感。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>6/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>509円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>1</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>3</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>モカ</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>最古のコーヒーの種類と言われるエチオピア・モカ。</p>
+						<p>リラックス向きのコーヒー。これからの活動に効果が見込める。甘味とコクがあり、フルーティーで爽やかな酸味が特長のコーヒー豆。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>509円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>2</td>
+						</tr>
+					</table>
+				</article>
+				<article>
+					<h6>マンデリン</h6>
+					<p><img src="../images/store/rlx.jpg" width="150px" alt="コーヒー豆の銘柄"></p>
+					<div>
+						<p>インドネシアで栽培される希少なコーヒー豆のこと。深いコクのある上品な味わい</p>
+						<p>リラックス向きのコーヒー。これからの活動に効果が見込める。高級銘柄として世界的に知られており、日本でも根強く人気。</p>
+						<p>注文は<a href="fax.pdf">こちら</a>から</p>
+					</div>
+					<table><!--<table>じゃなくていいの？-->
+						<tr>
+							<th scope="row">リラックス数値</th>
+							<td>7/10</td>
+						</tr>
+						<tr>
+							<th scope="row">カロリー/100g</th>
+							<td>7.5kcal</td>
+						</tr>
+						<tr>
+							<th scope="row">価格/100g</th>
+							<td>662円</td>
+						</tr>
+						<tr>
+							<th scope="row">グラム数</th>
+							<td>200ｇから</td>
+						</tr>
+						<tr>
+							<th scope="row">こく</th>
+							<td>4</td>
+						</tr>
+						<tr>
+							<th scope="row">甘み</th>
+							<td>3</td>
+						</tr>
+						<tr>
+							<th scope="row">酸味</th>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">苦味</th>
+							<td>4</td>
+						</tr>
+					</table>
+				</article>
+			</section><!--リラックス-->
+		</section><!--商品カテゴリ-->			
+</main>
+<footer>
+	<p><small><a href="../law/index.html">特定商取引法に基づく表示</a></small></p>
+	<p><small>Copyright © Cafe Forest. All Rights Reserved.</small></p>
+</footer>
+</body>
+
+</html>

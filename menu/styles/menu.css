@@ -1,0 +1,393 @@
+﻿@charset "utf-8";
+
+/* general */
+/* メニューページ mainのみのスタイル */
+.menu {
+	text-align:justify;
+}
+@supports(text-justify:inter-character) {
+	 .menu {
+		text-justify:inter-character;
+	}
+}
+.menu > main {
+	background-color:rgb(255,255,255);
+	padding-block-end:0.5em;
+}
+.menu > main h1 {
+	text-align:center;
+}
+.menu > main h1 ~ p {
+	text-align:center;
+}
+.menu > main h2 {
+	display:none;
+	text-align:center;
+}
+.menu > main h2 ~ p {
+	text-align:center;
+}
+.menu > main h3 {
+	font-size:1.2em;
+	padding-block-start:1em;
+	margin-block-end:1em;
+	text-align:center;
+}
+.menu > main h4 {
+	font-size:1.0em;
+	margin-block-start:0.5em;
+	text-align:center;
+}
+.menu > main small {
+	font-weight:normal;
+}
+.menu > main a {
+	text-decoration:none;
+}
+.menu main > section {
+	border-radius:0 1rem 1rem 1rem;
+	position:relative;
+}
+.menu main > section > p {
+	text-align:start;
+	inline-size:90%;
+	margin-block-start:2em;
+	margin-inline:auto;
+}
+.menu > main > section > section > p {
+	text-align:center;
+}
+.menu > main > #food > section > h3 {
+	margin-block-end:0px;
+}
+@media screen and (max-width:720px) {
+	.menu > main > #drink > section > p {
+		inline-size:90%;
+		text-align:start;
+		margin-inline:auto;
+	}
+	.menu > main > #drink > section > p > br {
+		display:none;
+	}
+}
+@media screen and (max-width:520px) {
+	.menu > main > #dessert > section > p {
+		inline-size:80%;
+		text-align:start;
+		margin-inline:auto;
+	}
+	.menu > main > #dessert > section > p > br {
+		display:none;
+	}
+}
+
+/* タブによる表示切り替え */
+.menu > main > div:not(#pagetop) {
+	display:flex;
+	justify-content:start;
+	margin-inline:auto;
+	justify-content: center;
+}
+.menu > main > div > label {
+	inline-size:30%;
+	block-size:3rem;
+	line-height:3rem;
+	background-color:var(--orange);
+	font-size:1.2em;
+	text-align:center;
+	color:rgb(255,255,255)
+}
+.menu > main > div > label:not(:last-of-type) {
+	margin-inline-end:0.2em;
+}
+
+/* ブラウザ幅 280px以下 */
+@media screen and (max-width:480px) {
+	.menu > main > div {
+		inline-size:100%;
+		flex-wrap:wrap;
+	}
+	.menu > main > div > label {
+		inline-size:100%;
+		margin-block:0.1em;
+	}
+	.menu > main > div > label:not(:last-of-type) {
+		margin-inline-end:0px;
+	}
+}
+.menu main > div > label:hover { 
+	opacity:0.5;
+}
+.menu main input#item1:checked ~ div > label:nth-of-type(1),
+.menu main input#item2:checked ~ div > label:nth-of-type(2),
+.menu main input#item3:checked ~ div > label:nth-of-type(3) {
+	background-color:var(--pale2);
+	font-size:1.4em;
+	font-weight:bold;
+	color:var(--fore);
+}
+.menu main input#item1:checked ~ div > label:nth-of-type(1):hover,
+.menu main input#item2:checked ~ div > label:nth-of-type(2):hover,
+.menu main input#item3:checked ~ div > label:nth-of-type(3):hover {
+	opacity:1.0;
+}
+.menu main input[type="radio"] {
+	display:none;
+}
+.menu main > section {
+	display:none;
+}
+.menu main input#item1:checked ~ section#drink,
+.menu main input#item2:checked ~ section#food,
+.menu main input#item3:checked ~ section#dessert {
+	display:block;
+}
+
+/* メニューリスト */
+.menu > main > section > section > div {
+	display:grid;
+	grid-template-columns:repeat(3, max(180px, var(--logPx) * 240));
+	justify-content:center;
+	gap:1em;
+	margin-inline:auto;
+	margin-block-end:1em;
+}
+/* 720px以下でカラム数2 */
+@media screen and (max-width:720px) {
+	.menu > main > section > section > div {
+		grid-template-columns:repeat(2,180px);
+	}
+}
+/* 480px以下でカラム数1 */
+@media screen and (max-width:480px) {
+	.menu > main > section > section > div {
+		grid-template-columns:180px;
+	}
+}
+/* 写真メニュー */
+.menu > main > section > section > div > article {
+	background-color:rgb(255,255,255);
+	padding:0.5em;
+	box-shadow: 2px 2px 6px rgb(200,200,200);
+}
+.menu > main > section > section > div > article img {
+	inline-size:100%;
+	block-size:max(168px, var(--logPx) * 224);
+	object-fit:cover;
+	object-position:center;
+}
+.menu > main > section > section > div > article > h4 {
+	block-size:2.5em;
+}	
+.menu > main > section > section > div > article > p {
+	margin:0px;
+}
+.menu > main > section > section > div > article > p:not(first-of-child) {
+	text-align:center;
+}
+/* 写真2枚表示 */
+.menu .img2 img {
+		inline-size:calc( (100% - 0.5em) / 2);
+}
+.menu > main > section > section > div > article > p:first-of-type {
+	text-align:justify;
+	block-size:4.5em;
+	letter-spacing: -0.05em;
+}
+/* おすすめ */ 
+.menu .recommend {
+	position:relative;
+}
+.menu .recommend > div {
+	position: absolute;
+	top: -7px;
+	right: -5px;
+	width: 89px;
+	height: 91px;
+	overflow: hidden;
+}  
+.menu .recommend > div > span {
+	display: inline-block;
+	position: absolute;
+	padding: 7px 0;
+	left: -23px;
+	top: 22px;
+	width: 160px;
+	text-align: center;
+	font-size: small;
+	font-weight:bold;
+	line-height: 16px;
+	background: var(--dark);
+	opacity:0.9;
+	color: rgb(255,255,255);
+	letter-spacing: 0.05em;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} 
+.menu .recommend > div > span:before, 
+.menu .recommend > div > span::after {
+	position: absolute;
+	content: "";
+	border-top: 4px solid var(--light);
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	bottom: -4px;
+}
+.menu .recommend > div > span:before {
+	left: 14px;
+}
+.menu .recommend > div > span:after {
+	right: 18px;
+}
+
+/* click! */
+.menu > main .click {
+	border-radius: 0.75em;
+	background-color:var(--orange);
+	inline-size:5em;
+	block-size:1.5em;
+	display:flex;
+	margin-inline:auto;
+}
+.menu > main .click:hover {
+	opacity: 0.5;
+}
+.menu > main .click > a {
+	color:rgb(255,255,255);
+	inline-size:100%;
+	block-size:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+/* click! in aside */
+.menu > main aside .click {
+	background-color:var(--dark);
+}
+
+/* aside */
+.menu > main aside {
+	inline-size: 90%;
+	background-color:var(--pale2);
+	padding:2em;
+	margin-inline:auto;
+	margin-block:2em 1em;
+	border-radius:1em;
+	box-shadow: 2px 2px 6px rgb(200,200,200);
+}
+.menu > main aside > h3 {
+	padding-block-start:0px;
+}
+.menu > main aside p {
+	text-align:justify;
+}
+
+/* aside オーダーケーキ */
+/* 注意事項 */
+.menu #dessert > aside > ul {
+	margin-block:1em;
+}
+.menu #dessert > aside > ul > li {
+	text-align:start;
+}
+/* サイズと価格表 */
+.menu #dessert > aside > div {
+	display:flex;
+	justify-content:center;
+	gap:1em;
+}
+.menu #dessert > aside > div > article{
+	display:grid;
+	grid-template-rows:3em 1.5em 1.5em 1.5em;
+	inline-size:calc(var(--logPx) * 160);
+	flex-shrink:0;
+}
+.menu #dessert > aside > div > article > h4,
+.menu #dessert > aside > div > article > p {
+	padding:0;
+	margin:0;
+}
+.menu #dessert > aside > div > article > p > br {
+	display:none;
+}
+@media screen and (max-width:720px) {
+	.menu #dessert > aside > div {
+		display:block;
+	}
+	.menu #dessert > aside > div > article{
+		display:grid;
+		grid-template-columns:4em 3em 12em 11em;
+		grid-template-rows:3em;
+	}
+}
+@media screen and (max-width:480px) {
+	.menu #dessert > aside > div {
+		display:block;
+	}
+	.menu #dessert > aside > div > article{
+		display:grid;
+		inline-size:30%;
+		grid-template-columns:4em 12em;
+		grid-template-rows:1.5em 1.5em 1.5em;
+		margin-block-end:1em;
+	}
+	.menu #dessert > aside > div > article > h4 {
+		grid-row:span 3;
+	}
+}
+/* 各直径に合わせたh4 */
+.menu #dessert > aside > div > article > h4 {
+	background-color:var(--orange);
+	border-radius:50%;
+}
+.menu #dessert > aside > div > article:nth-of-type(1) h4 {
+	inline-size:2em;
+	block-size:2em;
+}
+.menu #dessert > aside article:nth-of-type(2) h4 {
+	inline-size:2.5em;
+	block-size:2.5em;
+}
+.menu #dessert > aside article:nth-of-type(3) h4 {
+	inline-size:3em;
+	block-size:3em;
+}
+
+/* 戻るボタン */
+.menu main {
+	position:relative;
+}
+.menu footer {
+	overflow:visible;
+}
+.menu #pagetop {
+	position:sticky;
+	inset-block-end:0.5em;
+	margin-inline-start:calc(100% - 2.5em);
+}
+.menu #pagetop > a {
+	background-color:var(--dark);
+	opacity: 0.7;
+	border-radius:50%;
+	inline-size:4em;
+	block-size:4em;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-align:right;
+	z-index:3;
+}
+.menu #pagetop > a:hover {
+	opacity: 0.5;
+}
+.menu #pagetop > a::after {
+	content: "";
+	display: block;
+	border-block-start: 2px solid rgb(255,255,255);
+	border-inline-end: 2px solid rgb(255,255,255);
+	inline-size: 25%;
+	block-size: 25%;
+	transform:rotate(-45deg);
+}

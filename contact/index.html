@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="description" content="東京都北区のカフェ「Cafe Forest（カフェフォレスト）」の問い合わせページ。熟練焙煎士が挽くコーヒー、パティシエ特製デザート、店頭販売、通販、コーヒーが1杯無料になるクーポン、アクセスについてなど、お気軽にお問合せください。">
+	<meta name="keywords" contact="質問,クーポン,オーダー店舗,ケーキ,">
+	<title>お問い合せ | Cafe Forest</title>
+	<link rel="stylesheet" href="../CSS/general.css" type="text/css">
+	<link  rel="stylesheet" href="../CSS/box.css"  type="text/css">
+	<script src="../jQuery/jquery-3.6.0.min.js"></script>
+	<script>				//メールアドレス二回入力させてチェック。不一致なら警告出す。
+		function CheckMail() {
+	    // ↓↓ 入力値取得 ↓↓
+	    var input1 = $("#mail01").val();
+	    var input2 = $("#mail02").val();
+	    // ↓↓ メール比較 ↓↓
+	    if (input1 !== input2) {
+	        window.alert("メールアドレスが一致しません。");
+	        return false;
+	    } else {
+	        return true;
+	    }
+	}
+	</script>
+</head>
+<body class="contact">
+	<header>
+	<img src="../images/logo.svg" width="auto" height="100px" alt="ロゴ">
+		<nav>
+		<h2>サイトマップ</h2>
+			<ul>
+				<li><a href="../index.html">トップ</a></li>
+				<li><a href="../coupon/index.html"><picture><source srcset="../images/banner_hanbun.png" media="(max-width: 730px)"><img src="../images/banner_h.png" alt="バナー"></picture></a></li>
+				<li><a href="../coffee-info/index.html">自家焙煎コーヒー</a></li>
+				<li><a href="../coffee-cake/monthly.php">今月のコーヒー＆ケーキ</a></li>
+				<li><a href="../menu/index.html">メニュー</a></li>
+				<li><a href="../store/index.html">通販</a></li><!--ハイライトかdisplay:none-->
+				<li><a href="../tenpo/index.html">店舗紹介</a></li>
+				<li><a href="#">お問い合わせ</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+			<h1>お問い合わせ</h1>
+			<p>以下のフォームに入力の上「送信内容の確認」ボタンをクリックして下さい。<br>
+			フォームでのお問合せのお返事については2～3日お時間を要する場合がございますので、<br>
+			お急ぎの場合はお電話にてお問合せ下さいますようお願い申し上げます。</p>
+			<form action="confirm.php" method="POST">
+			<table>
+			  <tr><td class="item">お名前<span>必須</span></td><td><input type="text" required="" size="25" maxlength="20" name="name"></td></tr>
+			  <tr><td class="item">メールアドレス<span>必須</span></td><td><input type="email" id="mail01" required="" size="45" name="mail"></td></tr>
+			  <tr><td class="item">メールアドレス確認</td><td><input type="email" id="mail02" required="" size="45" ></td></tr>
+
+			  <tr><td class="item">電話番号<span>必須</span></td><td><input type="tel" name="tel" required="" size="25"></td></tr>
+			  <tr><td class="item">お問い合わせタイトル</td>
+			  	  <td>
+			  	  	<select name="querytitle">
+			  	  		<option>商品について</option>
+			  	  		<option>通販について</option>
+			  	  		<option>クーポンについて</option>
+			  	  		<option>その他</option>
+			  	  	</select>
+			  	  </td>
+			  </tr>
+			  <tr><td class="item">お問い合わせ内容<span>必須</span></td>
+	      		  <td style=" height:300px; margin: 0px; padding: 0px;">
+	      		  	<textarea name="query" required="" style=" height: 90%; box-sizing: border-box; margin-left: 1rem;" rows="12" cols="36"></textarea>
+	      		  </td>
+	      	  </tr>
+	      	</table>
+	      	<p style="text-align:center;"><input type="submit" class="button"  value="送信内容の確認" onClick="return CheckMail()"></p>
+
+	      </form>
+	</main>
+	<footer>
+		<p><small><a href="../law/index.html">特定商取引法に基づく表示</a></small></p>
+		<p><small>Copyright © Cafe Forest. All Rights Reserved.</small></p>
+	</footer>
+</body>
+</html>
